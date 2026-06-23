@@ -1,18 +1,208 @@
-class Cat{
-private String name;
+
+class ValHold{
+public int i = 10;
+}
+class ObParm{
+public static void main(String argv[]){
+ObParm o = new ObParm();
+o.amethod();
+}
+public void amethod(){
+int i = 99;
+ValHold v = new ValHold();
+v.i=30;
+another(v,i);
+System.out.println(v.i);
+}//End of amethod
+public void another(ValHold v, int i){
+i=0;
+v.i = 20;
+ValHold vh = new ValHold();
+v = vh;
+System.out.println(v.i+ " "+i);
+}//End of another
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*class Item{
+private int code;
+Item(int code){
+this.code=code;
+}
+void setCode(Item item){
+this.code=item.code;
+}
+void printCode(){
+System.out.println("code : "+code);
+
+}
 }
 class Demo{
 public static void main(String args[]){
-Cat cat; //Line 1
-Cat[] cats; //Line 2
-cat=new Cat[5]; //Line 3
-cat=new Cat(); //Line 4
-cats=new Cat(); //Line 5
-//Institute of Computer Engineering Technology
-//Page 19 of 31
-cats=new Cat[5]; //Line 6
+Item item1=new Item(1001);
+item1.printCode();
+Item item2=new Item(2002);
+item2.setCode(item1);
+item2.printCode();
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import java.util.*;
+class Employee{
+	private String firstName;
+	private String lastName;
+	private double salary;
+	
+	Employee(String firstName, String lastName, double salary){
+		setFirstName(firstName);
+		setLastName(lastName);
+		setSalary(salary);
+	}
+	
+	public  void setFirstName(String firstName){
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName){
+		this. lastName = lastName;
+	}
+	
+	public void setSalary(double salary){
+		this. salary = salary;
+	}
+	
+	public String getfirstName(){
+		return firstName;
+	}
+	
+	public String getLastName(){
+		return lastName;
+	}
+	
+	public double getSalary(){
+		return salary;
+	}
+	
+	Employee(){}
+	
+	public double getYearlySalary(){
+		return this.salary *12;
+	}
+	public double getRaiseSalary(){
+		return this.salary *12 * 0.1;
+	}
+
+}
+class Demo{
+	public static boolean validSalaryAmount(double amountOfSalary){
+		if (amountOfSalary>0)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter employees amount: ");
+		int amountOfEmployees = input.nextInt();
+		
+		Employee[] employees = new Employee[amountOfEmployees];
+		
+		for (int i = 0; i < amountOfEmployees; i++)
+		{
+			employees[i] = new Employee();
+			System.out.print("Input First Name : ");
+			employees[i].setFirstName(input.next());
+			
+			System.out.print("Input Last Name : ");
+			employees[i].setLastName(input.next());
+			L1:while(true){
+			System.out.print("Input salary amount: ");
+			double amountOfSalary = input.nextInt();
+			
+			if (validSalaryAmount(amountOfSalary))
+			{
+				employees[i].setSalary(amountOfSalary);
+				System.out.println("/////////////////////");
+				System.out.println("Year salary of " + employees[i] + " is : " + employees[i].getYearlySalary());
+				System.out.println("Year Final salary of " + employees[i] + " is : " + employees[i].getRaiseSalary()); 
+				break;
+			}else
+			{
+				System.out.println("Amount of Salary must be positive value...Try again...");
+				continue L1;
+			}
+			
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*class Box{
 int length;
